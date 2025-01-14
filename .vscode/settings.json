@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "channel",
+            "database": "'C:\\Users\\vmgon\\proyectos\\diplomado_dataset\\channels.db'"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
