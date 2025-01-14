@@ -5,7 +5,7 @@ from telethon.sessions import StringSession
 from telethon.tl.types import Channel, Chat, User
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon import functions, types
-import query.query_sql as query_sql
+#import query.query_sql as query_sql
 import random
 import json
 import re
@@ -14,6 +14,20 @@ import sqlite3
 
 
 telefono = "+56920982790"
+api_id = "29039967"
+api_hash = "c137731948c2a91a07e1430bd8733d8e"
+
+clientes = [
+    "1AZWarzoBu4aSvYgjrDl3pAghWLk_rIVgdzCT2CBgzXvJiM2_tHg7k4z-I72hJ1JRJTiL7HuUJv4ew6_raaqnxcomQfH8JMbCAzXaEYogRnE5l2o-RrtWS6oqf7TNpf_pDP4O2a1UbVtRe5Fw3c5QLFOa1eaL4iblNuAeou-5u-PlT3WIBFJDYLqnKlDtrR16rnXeJAqJObbxKo2mqgNQHk0RtrHKQphXDGePuuFV3_LGP1olH3TZCffGTjxI0_YQrrLuqehFkEOXllKrlfIsclszEtPVScwPXA2T8VYsCHscvARjYQWLB7OATN-7_QtfeE4-e7oS1pZ8Drwn4XpVMjWODHKi_S8=",
+    "1AZWarzoBu6CRsDLG2HiQwdXp3BEWULY9KYaZtFcAOyUwAQ0GAlQkjBNaMMgMz2zlmy9NCV62zAz7_3DD8uyJ-vwSReYy3WoFJbqYdTTTTdB_I2ci0tzqTITbgb3Y7jDBcGQBuHB0vl_DWD_BHTjjddBlfxy3RggxAvwq18dln1wncKFqMlKAzltTEzp8Tcd7StrtLpQDqq_JpPFU-Gr6N5sDj6Oiq07J9KlH_N7_9DBpUAF7xfhvH0MnzTTRPLd5QwoFyhGfO4ckp2gu3vJL_Xl-EQi_x-ftnBRTt0vscVmxw18GxVA3jpDaotVrH1Bqw_m5XyzFqJ7i3jSmRUy8hY0gzKWWE_s=",
+    "1AZWarzoBu7GC2fNiFzfurlyVbvlezEBmgDUN0rLOXGbB_n8oPtqtK04u-vZFo9MJhiPYDVRXRwYRCo6rHIhtcJRucOnZe2D9jgEBl9PKKyLiP5k3nebH-Os5Cqv4sJL1Pt8bdT6UF9PCa7OiwCTLOOmvwTqfG6WktKX_mLCygwUF1FrWLY-1mVuVLXLeyQyOYYcnznyCaDThTJgnZ7f9iDliaGmDbXYqKfrFV00wPyyFkCZLPmLI3ngRVRM7Z6YxOcvkaPuMXmfulJeYtpJfGDakqhse_rBR5ihW_mEvXb4UqiNHXbeZ_aqjGA5t_LjnnqxrbOUwKT5OoA2jpkdGYPpBCAOrHcM=",
+    "1AZWarzoBuxW_7_a6_4sEtkoLT3bRfRFwKtZjQmWRqtlJtDRVwSPLb83CEnfMpZXPJoutbHqeDTcbGCh_vavWBRpw1J4NctMDsekxAi4K_7f0gG7uAZLACmD1Zy6ln81OJ9u5YsrpUBxgiu7H_TY75gbOhFoaPLrNCqGP2VAjrqLziRpKMtorarLSbTs0F7LCE5iSaRE7BBRah8SUM-D_cG2cXQvPH9qrDkrslPnsE1V501C3Tl02lu7IDX5bLe_ZqAjxkWzmiwNQGM6oaQNg85SMieDfLOUHjNZjP-7CwxVQugbQoJw14BKYeOwEaECWoj6nZJgA3F1qjzX38dwiij3gQT3aOJg=",
+    "1AZWarzoBu7ev0cE9B929hUE8H4RUr5lCT6WM-b0wBIJIUlOGPJ7BOchg3UwgBpoYKaxsxXGNtddW4WmmYqFJBCnYV5mwbHXvNrQFkb-lnJmRLiyxfshqSLiLRMz4MS7pZdayTQM_MHN4fyppvVGV3ie33RCFghe6pVnRZV6MSOOy9QsdMRSD--71BUzx1rKnG-kXgRBWo71YawSXRbhoqSGkIxx4OaWAtP5nAt96YtvUxb_bSsu2JddbgertDpvG0kAwh5uD6yWJ1tcDYd_E5lhXyNoqWI2i5390jTjqOmsCGnjkPPmlOeVC3FgY_AEM1NZBEUuXfVTdNWUe7H4oqX0assajN9Q="
+]
+
+
+
+
 #Genera diccionario con mensaje 
 def messages_info(msg):
     message = {}
@@ -56,13 +70,13 @@ def register_enlaces(data,channel):
 #Funcion que retorna un arreglo diccionarios 
 def get_old_messages(url_channel):
     output = []
-    phone = telefono
-    api = query_sql.find_client_telegram(phone)
-    api_id = api[0][1]
-    api_hash = api[0][2]
+    #phone = telefono
+    #api = query_sql.find_client_telegram(phone)
+    #api_id = api_id
+    #api_hash = api[0][2]
     #num_message = 20
     num_message = 2000
-    clientes = query_sql.get_all_session_by_phone(phone)
+    #clientes = query_sql.get_all_session_by_phone(phone)
     cliente = random.choice(clientes)
 
 
